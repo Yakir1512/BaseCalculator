@@ -13,33 +13,17 @@ package assignments.ex1;
  */
 
 public class Ex10 {
-       /* public static int converToTen(String str){
 
-        }
-            int num = Integer.parseInt(str);
-            int newNum = 0 , power= 0 , base = str.charAt(str.length()-1);
-            if (base > 57){
-                base = (base- 65) +10;
-            }
-            else {
-                base = (base-48);
-            }
-
-            while (num>0){
-                int x = num % 10;
-                newNum = (int) (newNum + x * (Math.pow(base , power)));
-                num= num/10;
-                power++;
-            }
-            return newNum;
-        }*/
-       public static int converToTen(String str, int base){
+       public static int converToTen(String str , int base){
            int newNum = 0 , power= 0;
            if (!isNumber(str))
                return -1;
 
+           String []a = str.split("b");
+           String number = a[0];
+
            if(base < 10) {                                                                           //if the base is under 10. if the number has no chars which are not numbers. **just to do faster calculations...**
-               int num = Integer.parseInt(str);
+               int num = Integer.parseInt(number);
                while (num > 0) {
                    int x = num % 10;
                    newNum = (int) (newNum + x * (Math.pow(base, power)));
@@ -48,14 +32,14 @@ public class Ex10 {
                }
            }
            else {
-               int indx = str.length()-1 ;                                                                //this will indicate for the string index and for the power to multiply.for converting  to 10.
+               int indx = (number.length()-1) ;                                                                //this will indicate for the string index and for the power to multiply.for converting  to 10.
                while (indx >= 0) {
-                   if (str.charAt(indx) >= 'A') {
-                       newNum = (int) (newNum + (str.charAt(indx) - 'A' + 10) * (Math.pow(base, power)));  //update the counter to itself plus the char value.
+                   if (number.charAt(indx) >= 'A') {
+                       newNum = (int) (newNum + (number.charAt(indx) - 'A' + 10) * (Math.pow(base, power)));  //update the counter to itself plus the char value.
                        power++;
                        indx--;
                    } else {                                                                                //if the char is a digit convert it to int and add it to counter in base 10.
-                       int num = Character.getNumericValue(str.charAt(indx));
+                       int num = Character.getNumericValue(number.charAt(indx));
                        newNum = (int) (newNum + num * (Math.pow(base, power)));
                        power++;
                        indx--;
@@ -71,23 +55,52 @@ public class Ex10 {
          * @return
          */
         public static String converToBase(int num, int base){
-
-            int newNum = 0;
+            if (num<0 || base < 2 || base > 16)
+                return "";
             String str = "";
             while (num > 0){
-                str = str + (num % base);
-                num = num / base;
+                if (num % base > 9) {
+                    str = str + (char)('A' + (num % base - 10));
+                    num = num / base;
+                }
+                else {
+                    str = str + (num % base);
+                    num = num / base;
+                }
             }
             str=  new StringBuilder(str).reverse().toString();
             return str;
         }
 
-        public static int number2Int(String num) {
-            int ans = -1;
-            ans = Integer.parseInt(num);
 
+
+        public static int theNumberBase(String str){
+            int ans;
+            String []a = str.split("b");
+            String baseNum2 = a[1];
+
+            if (baseNum2.charAt(0) > 57){
+                ans = (baseNum2.charAt(0)-65)+10;
+            }
+
+            else {
+                ans = Integer.parseInt(baseNum2);
+            }
             return ans;
         }
+
+        public static int inputBase(String str){
+            int ans;
+            if (str.charAt(0) > 57){
+                ans = (str.charAt(0)-65)+10;
+            }
+
+            else {
+                ans = Integer.parseInt(str);
+            }
+            return ans;
+        }
+
         /**
          * This static function checks if the given String (g) is in a valid "number" format.
          * @param a a String representing a number
@@ -126,9 +139,12 @@ public class Ex10 {
          */
         public static boolean equals(String n1, String n2) {
             boolean ans = true;
-            // add your code here
-
-            ////////////////////
+            if(n1.length() != n2.length())
+                return false;
+            for ( int i = 0; i < n1.length() ; i++){
+                if (n1.charAt(i)!=n2.charAt(i))
+                    return false;
+            }
             return ans;
         }
 
@@ -141,10 +157,34 @@ public class Ex10 {
          *
          */
         public static int maxIndex(String[] arr) {
-            int ans = 0;
-            // add your code here
+            int ans , temp;
+            String s="";
+            s = s+arr[0];
 
-            ////////////////////
-            return ans;
+            if (s.charAt(0) > 57) {
+                ans = (s.charAt(0) - 65) + 10;
+            }
+            else {
+                ans = Integer.parseInt(s.substring(0,1));
+            }
+            if (s.length()==1)
+                return ans;
+
+            for(int j = 0; s.length()>j+1;j++) {
+
+                if (s.charAt(0) > 57){
+                    temp = (s.charAt(j)-65)+10;
+                }
+
+                else {
+                    temp = Integer.parseInt(String.valueOf(s.charAt(j+1)));
+                }
+                if (temp>ans)
+                    ans = temp;
+
+            }
+
+
+            return ans;           //the function asks for an int!!!!
         }
 }

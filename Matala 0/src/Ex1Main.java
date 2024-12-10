@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Ex1Main {
     public static void main(String[] args) {
-        int base;
+        int base , base1 ,base2;
         String stbase;
         Scanner sc = new Scanner(System.in);
         String num1 = "", num2="", quit = "quit";
@@ -31,18 +31,25 @@ public class Ex1Main {
                         stbase = sc.next();
                         //convert the string base to int.
                         if (!(stbase.length() > 1))
-                        if (stbase.charAt(0) > 57 ){
-                            base = (stbase.charAt(0)- 65) +10;
-                        }
-                        else {
-                            base = (stbase.charAt(0)-48);
-                        }
-                        else {
+                            base = assignments.ex1.Ex10.inputBase(stbase); //convert the base to int.
+                        else {                                             //if the input base isnt valid.
                             System.out.println("Base is not valid to me!!!" + " Try again");
                             continue;
                         }
-                        assignments.ex1.Ex10.converToBase(assignments.ex1.Ex10.converToTen(num1),base);
-                        assignments.ex1.Ex10.converToBase(assignments.ex1.Ex10.converToTen(num2),base);
+                        base1 = assignments.ex1.Ex10.theNumberBase(num1);
+                        base2 = assignments.ex1.Ex10.theNumberBase(num2);
+
+                        String []str = num1.split("b");            //splitting the string for tow and check if valid.
+                        String []str2 = num2.split("b");
+                        String number = str[0];
+                        String number2 = str2[0];
+
+
+                        System.out.println("the first converted number is- "+num1+" in base "+base1+ " and it converted to: "+assignments.ex1.Ex10.converToBase(assignments.ex1.Ex10.converToTen(num1,base1),base));
+                        System.out.println("the second converted number is-"+num2+" in base "+base2+" and it converted to: "+assignments.ex1.Ex10.converToBase(assignments.ex1.Ex10.converToTen(num2,base2),base));
+                        System.out.println("Max index in-"+ num1+" is: "+ assignments.ex1.Ex10.maxIndex(str));
+                        System.out.println("Max index in-"+ num2+" is: "+ assignments.ex1.Ex10.maxIndex(str2));
+                        System.out.println("are equals? "+ assignments.ex1.Ex10.equals(number,number2));
                     }
                     else{
                         continue;

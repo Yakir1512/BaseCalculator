@@ -18,7 +18,7 @@ public class Ex1 {
        // System.out.println(converToBase(converToTen("123" , 4),3));
        // System.out.println(assignments.ex1.Ex10.isNumber("1F1FbG"));
       //  System.out.println(converToBase(7967 , 16));
-        System.out.println(converToBase(converToTen("10109" , 16),10 ));
+        System.out.println(converToBase(converToTen("1F1F" , 16),10 ));
     }
 
 
@@ -30,8 +30,8 @@ public class Ex1 {
      */
     public static int converToTen(String str, int base){
         int newNum = 0 , power= 0;
-        if (!isNumber(str))
-            return -1;
+       // if (!isNumber(str))
+         //   return -1;
 
         if(base < 10) {                                                                           //if the base is under 10. if the number has no chars which are not numbers. **just to do faster calculations...**
             int num = Integer.parseInt(str);
