@@ -28,15 +28,15 @@ public class Ex1Test {
     @Test
     void testConvertToTen() {
         String input = "1011b2";
-        int result = Ex1.converToTen(input.split("b")[0], 2);
+        int result = Ex1.converToTen(input, 2);
         assertEquals(11, result, "Failed to convert binary to decimal");
 
-        input = "A1b16";
-        result = Ex1.converToTen(input.split("b")[0], 16);
+        input = "A1bG";
+        result = Ex1.converToTen(input, 16);
         assertEquals(161, result, "Failed to convert hexadecimal to decimal");
 
-        input = "123b10";
-        result = Ex1.converToTen(input.split("b")[0], 10);
+        input = "123bA";
+        result = Ex1.converToTen(input, 10);
         assertEquals(123, result, "Failed to convert decimal to decimal");
     }
 
