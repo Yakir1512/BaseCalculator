@@ -1,7 +1,7 @@
 package BaseCalculator;
 
 
-public class Ex10 {
+public class Ex1 {
 
        public static int converToTen(String str , int base){
            int newNum = 0 , power= 0;
