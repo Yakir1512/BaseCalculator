@@ -47,7 +47,7 @@ public class Ex1Main {
                         System.out.println("Max index in-"+ num2+" is: "+ Ex1.maxIndex(str2));
                         System.out.println("are equals? "+ Ex1.equals(number,number2));
                         System.out.println(num1+" + "+ num2+" = "+(Ex1.converToTen(num1,base1)+Ex1.converToTen(num2,base2)));
-
+                        System.out.println(num1+" * "+ num2+" = "+(Ex1.converToTen(num1,base1)*Ex1.converToTen(num2,base2)));
                     }
                     else{
                         System.out.println("Enter  new strings ");
