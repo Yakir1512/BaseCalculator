@@ -1,11 +1,42 @@
 # BaseCalculator
-my id 206576902
-link for my project- https://github.com/Yakir1512/BaseCalculator/tree/main
-The program converts numbers between different bases
-The program receives two numbers from the user in the format
-123bF
-(number)b(base)
-and converts both to the base selected by the user.
-The base input is between 0-9 and A-B
+my id 2065769029
 
-The project consists of Class Main, Class Ex1 (for functions) and TestClass
+Base Calculator
+
+This project contains two Java files for converting numbers between bases and performing operations on them.
+
+Files Overview
+
+Ex1.java
+
+Provides utility methods for base conversions and numeric operations:
+
+converToTen: Converts a number from any base to base 10.
+
+converToBase: Converts a base 10 number to another base.
+
+isNumber: Validates if a string matches the numberbbase format.
+
+Additional methods handle base extraction, comparison, and finding the max value index.
+
+Ex1Main.java
+
+Command-line interface for the Ex1 class:
+
+Accepts two numbers in numberbbase format.
+
+Validates input, converts bases, and performs arithmetic operations (add/multiply).
+
+Compares numbers and outputs results.
+
+Follow on-screen instructions to input numbers and operations.
+
+Key Features
+
+Convert numbers between bases (2-16).
+
+Validate and compare numbers.
+
+Perform addition and multiplication in base 10.
+
+
