@@ -29,6 +29,7 @@ public class Ex1 {
                        indx--;                                                                                //
                    } else {                                                                                   //if the char is a digit convert it to int and add it to counter in base 10.
                        int num = Character.getNumericValue(number.charAt(indx));                              //make the string char an int
+
                        newNum = (int) (newNum + num * (Math.pow(base, power)));                               //update number in base ten
                        power++;
                        indx--;
@@ -105,6 +106,8 @@ public class Ex1 {
     public static boolean isNumber(String a) {
         boolean ans = true; // Variable to store if the string is valid.
 
+
+
         // Check if the string contains the separator 'b'.
         if (!a.contains("b")) {
             return ans = false; // If 'b' is missing, it's not valid.
@@ -164,35 +167,35 @@ public class Ex1 {
 
         return ans; // Return true if strings are equal.
     }
-
     public static int maxIndex(String[] arr) {
-        // Check for empty array
+        // Check if the array is empty or null
         if (arr == null || arr.length == 0) {
             throw new IllegalArgumentException("Array is empty");
         }
 
-        // Get the first string
-        String s = arr[0];
-        int ans = 0;
+        int maxRowIndex = 0; // Index of the row with the largest character
+        char maxChar = '\0'; // The largest character found so far
 
-        // Iterate through all characters in the string
-        for (int j = 0; j < s.length(); j++) {
-            // Convert character to integer
-            int temp;
-            if (s.charAt(j) > '9') {
-                // For alphabetic characters (A-Z)
-                temp = (s.charAt(j) - 'A') + 10;
-            } else {
-                // For numeric characters (0-9)
-                temp = s.charAt(j) - '0';
-            }
-
-            // Update max value
-            if (temp > ans) {
-                ans = temp;
+        // Iterate through all strings in the array
+        for (int i = 0; i < arr.length; i++) {
+            String s = arr[i];
+            // Iterate through all characters in the current string
+            for (int j = 0; j < s.length() ; j++) {
+                if (s.charAt(j)=='b'){
+                    j++;
+                    continue;
+                }
+                char currentChar = s.charAt(j);
+                // Update the largest character if needed
+                if (currentChar > maxChar) {
+                    maxChar = currentChar;
+                    maxRowIndex = i;
+                }
             }
         }
 
-        return ans;
+        return maxRowIndex; // Return the index of the string
     }
+
+
 }

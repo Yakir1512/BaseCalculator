@@ -14,19 +14,22 @@ public class Ex1Main {
             num1 = sc.next();                                               //first number input
 
             if (!num1.equals("quit")) {
+                System.out.println("num1 = "+ num1+" is Valid:"+Ex1.isNumber(num1));
                 if(Ex1.isNumber(num1))                     //check if number is valid
                     System.out.println("Enter a string as number#2 (or \"quit\" to end the program): ");
                 else{
                     System.out.println("404 ERROR! Enter a new string");
                     continue;
                 }
-                    num2 = sc.next();                                       //second input
+                num2 = sc.next();//second input
+
                 if (!num2.equals("quit")){
+                    System.out.println("num2 = "+ num1+" is Valid:"+Ex1.isNumber(num1));
                     if (Ex1.isNumber(num2)){               //check if number is valid
-                        System.out.println("Type the base you want to convert to? [2,16]. Enter A-G for Base 10-16!");
+                        System.out.println("Type the base you want to convert to? [2,16].");
                         base = sc.nextInt();     //convert the string base to int.
                         if (!(base > 1 && base < 17)) {
-                            System.out.println("Base is not valid to me!!!" + " Try again");
+                            System.out.println("Base is not valid to me!!!" + " Try again.");
                             continue;
                         }
 
@@ -37,16 +40,18 @@ public class Ex1Main {
                         String []str2 = num2.split("b");           //splitting the string for tow and check if valid.
                         String number = str[0];
                         String number2 = str2[0];
+                        String[] max = {num1,num2, String.valueOf(Ex1.converToTen(num1,base1)+Ex1.converToTen(num2,base2)), String.valueOf(Ex1.converToTen(num1,base1)*Ex1.converToTen(num2,base2))};
 
                         //Calling for the functions
                         System.out.println("the first converted number is - "+num1+" in base "+base1+ " and it converted to: "+ Ex1.converToBase(Ex1.converToTen(num1,base1),base));
                         System.out.println("the second converted number is -"+num2+" in base "+base2+" and it converted to: "+ Ex1.converToBase(Ex1.converToTen(num2,base2),base));
-                        System.out.println("Max index in-"+ num1+" is: "+ Ex1.maxIndex(str));
-                        System.out.println("Max index in-"+ num2+" is: "+ Ex1.maxIndex(str2));
-                        System.out.println("are equals? "+ Ex1.equals(number,number2));
+//                        System.out.println("Max index in-"+ num1+" is: "+ Ex1.maxIndex(str));
+//                        System.out.println("Max index in-"+ num2+" is: "+ Ex1.maxIndex(str2));
                         System.out.println(num1+" + "+ num2+" = "+(Ex1.converToTen(num1,base1)+Ex1.converToTen(num2,base2)));
                         System.out.println(num1+" * "+ num2+" = "+(Ex1.converToTen(num1,base1)*Ex1.converToTen(num2,base2)));
-                    }
+                        System.out.println("Max index in- ["+num1+","+ num2+","+String.valueOf(Ex1.converToTen(num1,base1)+Ex1.converToTen(num2,base2))+","+String.valueOf(Ex1.converToTen(num1,base1)*Ex1.converToTen(num2,base2))+"] is in:"+ max[Ex1.maxIndex(max)]);
+                        System.out.println("are equals? "+ Ex1.equals(number,number2));
+                        }
                     else{
                         System.out.println("Enter  new strings ");
                         continue;
