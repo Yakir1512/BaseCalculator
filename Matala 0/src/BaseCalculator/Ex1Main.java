@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Ex1Main {
     public static void main(String[] args) {
         int base , base1 ,base2;
-        String stbase;
         Scanner sc = new Scanner(System.in);
         String num1 = "", num2="", quit = "quit";
         while (!num1.equals(quit) && !num2.equals(quit)) {                   //loop in cases of user want to quit, enter wrong num or want to start again.
@@ -25,13 +24,12 @@ public class Ex1Main {
                 if (!num2.equals("quit")){
                     if (Ex1.isNumber(num2)){               //check if number is valid
                         System.out.println("Type the base you want to convert to? [2,16]. Enter A-G for Base 10-16!");
-                        stbase = sc.next();                                 //convert the string base to int.
-                        if (!(stbase.length() > 1))                        //convert the base to int.
-                            base = Ex1.inputBase(stbase); //
-                        else {                                             //if the input base isnt valid.
+                        base = sc.nextInt();     //convert the string base to int.
+                        if (!(base > 1 && base < 17)) {
                             System.out.println("Base is not valid to me!!!" + " Try again");
                             continue;
                         }
+
                         base1 = Ex1.theNumberBase(num1);       //Converting String to Int
                         base2 = Ex1.theNumberBase(num2);       //SAME!^
 
