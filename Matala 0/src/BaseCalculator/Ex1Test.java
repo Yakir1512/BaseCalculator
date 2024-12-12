@@ -1,4 +1,5 @@
-import assignments.ex1.Ex10;
+package BaseCalculator;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
