@@ -1,4 +1,3 @@
-package assignments.ex1;
 /**
  * This class represents a simple solution for Ex1.
  * As defined here: https://docs.google.com/document/d/1AJ9wtnL1qdEs4DAKqBlO1bXCM6r6GJ_J/r/edit/edit
@@ -63,18 +62,30 @@ public class Ex1 {
 
 
     /**
-     * This static function checks if the given String (g) is in a valid "number" format.
+     * This static function checks i
+     * f the given String (g) is in a valid "number" format.
      * @param a a String representing a number
      * @return true iff the given String is in a number format
      */
     public static boolean isNumber(String a) {
         boolean ans = true;
+        int counter =0;
+        for (int i = 0; i < a.length()  ; i++ ){
+            if (a.charAt(i)=='b')
+                counter++;
+                if (counter>1)
+                    return ans = false;
+
+        }
+
         String []str = a.split("b");
         String base = str[1];
         String number = str[0];
         for(int i = 0 ; i < number.length() ; i++ )
-            if (number.charAt(i) < '0' || (number.charAt(i) > '9' && number.charAt(i) < 'A') || number.charAt(i) > 'G')
+            if (number.charAt(i) < '0' || (number.charAt(i) > '9' && number.charAt(i) < 'A') || number.charAt(i) > 'G' || base.charAt(0)<number.charAt(i)) {
                 ans = false;
+                break;
+            }
 
         if ( base.length() != 1  || base.charAt(0) < '2' || (base.charAt(0) >'9'&&base.charAt(0) <'A') || base.charAt(0) >'G')
             ans = false;
@@ -84,14 +95,6 @@ public class Ex1 {
 
 
 
-    /**
-     * Calculate the number representation (in basis base)
-     * of the given natural number (represented as an integer).
-     * If num<0 or base is not in [2,16] the function should return "" (the empty String).
-     * @param num the natural number (include 0).
-     * @param base the basis [2,16]
-     * @return a String representing a number (in base) equals to num, or an empty String (in case of wrong input).
-     */
     public static String converToBase(int num, int base){
         if (num<0 || base < 2 || base > 16)
             return "";

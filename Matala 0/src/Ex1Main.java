@@ -24,6 +24,9 @@ public class Ex1Main {
                 if (!num2.equals("quit")){
                     if (assignments.ex1.Ex10.isNumber(num2)){               //check if number is valid
                         System.out.println("Type the base you want to convert to? [2,16]. Enter A-G for Base 10-16!");
+                        stbase = sc.next();                                 //convert the string base to int.
+                        if (!(stbase.length() > 1))                        //convert the base to int.
+                            base = assignments.ex1.Ex10.inputBase(stbase); //
                         else {                                             //if the input base isnt valid.
                             System.out.println("Base is not valid to me!!!" + " Try again");
                             continue;
