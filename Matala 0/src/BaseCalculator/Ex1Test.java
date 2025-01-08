@@ -69,6 +69,7 @@ public class Ex1Test {
         result = Ex1.converToBase(input, 10);
         assertEquals("123", result, "Failed to convert decimal to decimal");
     }
+
     @Test
     void testEquals() {
         String n1 = "1011";

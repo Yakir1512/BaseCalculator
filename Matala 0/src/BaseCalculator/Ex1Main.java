@@ -44,8 +44,12 @@ public class Ex1Main {
                         String[] max = {num1,num2, String.valueOf(Ex1.converToTen(num1,base1)+Ex1.converToTen(num2,base2)), String.valueOf(Ex1.converToTen(num1,base1)*Ex1.converToTen(num2,base2))};
 
                         //Calling for the functions
-                        System.out.println("the first converted number is - "+num1+" in base "+base1+ " and it converted to: "+ Ex1.converToBase(Ex1.converToTen(num1,base1),base));
-                        System.out.println("the second converted number is -"+num2+" in base "+base2+" and it converted to: "+ Ex1.converToBase(Ex1.converToTen(num2,base2),base));
+                        if (base!=10) {
+                            System.out.println("the first converted number is - " + num1 + " in base " + base1 + " and it converted to: " + Ex1.converToBase(Ex1.converToTen(num1, base1), base));
+                            System.out.println("the second converted number is -" + num2 + " in base " + base2 + " and it converted to: " + Ex1.converToBase(Ex1.converToTen(num2, base2), base));
+                        }
+                        else { System.out.println("the first converted number is - " + num1 + " in base " + base1 + " and it converted to: " + Ex1.converToTen(num1, base1));
+                            System.out.println("the second converted number is -" + num2 + " in base " + base2 + " and it converted to: " + Ex1.converToTen(num2, base2));}
 //                        System.out.println("Max index in-"+ num1+" is: "+ Ex1.maxIndex(str));
 //                        System.out.println("Max index in-"+ num2+" is: "+ Ex1.maxIndex(str2));
                         System.out.println(num1+" + "+ num2+" = "+(Ex1.converToTen(num1,base1)+Ex1.converToTen(num2,base2)));
