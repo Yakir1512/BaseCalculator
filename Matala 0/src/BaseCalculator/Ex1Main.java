@@ -11,6 +11,7 @@ public class Ex1Main {
             System.out.println();
             System.out.println("Ex1 class solution:");
             System.out.println("Enter a string as number#1 (or \"quit\" to end the program): ");
+            System.out.println("the syntax of the number is: NUMBER 'b' BASE");
             num1 = sc.next();                                               //first number input
 
             if (!num1.equals("quit")) {
@@ -50,7 +51,7 @@ public class Ex1Main {
                         System.out.println(num1+" + "+ num2+" = "+(Ex1.converToTen(num1,base1)+Ex1.converToTen(num2,base2)));
                         System.out.println(num1+" * "+ num2+" = "+(Ex1.converToTen(num1,base1)*Ex1.converToTen(num2,base2)));
                         System.out.println("Max index in- ["+num1+","+ num2+","+String.valueOf(Ex1.converToTen(num1,base1)+Ex1.converToTen(num2,base2))+","+String.valueOf(Ex1.converToTen(num1,base1)*Ex1.converToTen(num2,base2))+"] is in:"+ max[Ex1.maxIndex(max)]);
-                        System.out.println("are equals? "+ Ex1.equals(number,number2));
+                        System.out.println("are equals ? "+ Ex1.equals(number,number2));
                         }
                     else{
                         System.out.println("Enter  new strings ");
